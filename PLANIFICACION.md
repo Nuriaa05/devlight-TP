@@ -32,7 +32,7 @@ Las fechas de abajo son **estimadas**, porque las exactas las informa el docente
 - [x] **Jue 5:** conectar a Atlas y levantar el servidor sin errores.
 - [x] **Vie 6:** escribir el modelo `Task`, el acceso a datos y el servicio.
 - [x] **Sáb 7:** escribir el controlador y las rutas de los 5 endpoints, con try/catch en cada controlador.
-- [ ] **Dom 8:** probar el CRUD en Thunder Client, incluidos los 400, 404 y 500, y subir todo para el punto de control.
+- [x] **Dom 8:** probar el CRUD en Thunder Client, incluidos los 400, 404 y 500, y subir todo para el punto de control.
 
 ### Semana 2: autenticación, extras y entrega
 
