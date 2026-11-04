@@ -1,4 +1,5 @@
 import express from 'express';
+import taskRoutes from './components/tasks/task.routes';
 import { errorHandler, notFoundHandler } from './middlewares/error.middleware';
 
 const app = express();
@@ -9,7 +10,7 @@ app.get('/api/health', (_req, res) => {
   res.status(200).json({ status: 'ok' });
 });
 
-// Las rutas de los componentes se registran acá, antes de los manejadores de errores.
+app.use('/api/tasks', taskRoutes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
