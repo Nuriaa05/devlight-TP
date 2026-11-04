@@ -28,7 +28,7 @@ Las fechas de abajo son **estimadas**, porque las exactas las informa el docente
 
 - [x] **Mié 4:** elegir temática y base de datos, conectar el repositorio, escribir esta planificación.
 - [ ] **Mié 4:** crear el cluster en Atlas, el usuario de la base y habilitar el acceso por IP.
-- [ ] **Jue 5:** iniciar el proyecto con TypeScript y Express, armar las carpetas por componentes y configurar `dotenv`.
+- [x] **Jue 5:** iniciar el proyecto con TypeScript y Express, armar las carpetas por componentes y configurar `dotenv`.
 - [ ] **Jue 5:** conectar a Atlas y levantar el servidor sin errores.
 - [ ] **Vie 6:** escribir el modelo `Task`, el acceso a datos y el servicio.
 - [ ] **Sáb 7:** escribir el controlador y las rutas de los 5 endpoints, con try/catch en cada controlador.
@@ -66,6 +66,7 @@ src/
 ├── middlewares/
 │   ├── auth.middleware.ts       # Verifica el JWT
 │   ├── admin.middleware.ts      # Extra: roles
+│   ├── error.middleware.ts      # Rutas inexistentes y errores
 │   └── logger.middleware.ts     # Extra: logging
 ├── utils/
 │   └── AppError.ts              # Error con código de estado
