@@ -1,0 +1,18 @@
+# Dependencias
+node_modules/
+
+# Compilación de TypeScript
+dist/
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Registros
+*.log
+
+# Sistema y editor
+.DS_Store
+Thumbs.db
+.vscode/
