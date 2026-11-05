@@ -41,8 +41,8 @@ Las fechas de abajo son **estimadas**, porque las exactas las informa el docente
 - [x] **Mar 10:** implementar registro con Bcrypt y login con JWT.
 - [x] **Mié 11:** escribir el middleware de JWT y proteger las rutas.
 - [x] **Jue 12:** sumar los extras: relación entre modelos, filtros, roles y logging.
-- [ ] **Vie 13:** revisar validaciones y códigos de estado endpoint por endpoint.
-- [ ] **Sáb 14:** completar y exportar la colección de Thunder Client, y escribir el README.
+- [x] **Vie 13:** revisar validaciones y códigos de estado endpoint por endpoint.
+- [x] **Sáb 14:** completar y exportar la colección de Thunder Client, y escribir el README.
 - [ ] **Dom 15:** clonar el repositorio en una carpeta limpia, seguir el README desde cero, revisar la lista de control y entregar.
 
 ## Estructura
