@@ -40,7 +40,7 @@ Las fechas de abajo son **estimadas**, porque las exactas las informa el docente
 - [x] **Lun 9:** escribir el modelo `User`.
 - [x] **Mar 10:** implementar registro con Bcrypt y login con JWT.
 - [x] **Mié 11:** escribir el middleware de JWT y proteger las rutas.
-- [ ] **Jue 12:** sumar los extras: relación entre modelos, filtros, roles y logging.
+- [x] **Jue 12:** sumar los extras: relación entre modelos, filtros, roles y logging.
 - [ ] **Vie 13:** revisar validaciones y códigos de estado endpoint por endpoint.
 - [ ] **Sáb 14:** completar y exportar la colección de Thunder Client, y escribir el README.
 - [ ] **Dom 15:** clonar el repositorio en una carpeta limpia, seguir el README desde cero, revisar la lista de control y entregar.
@@ -105,7 +105,7 @@ Cada capa solo conoce a la siguiente: rutas → controlador → servicio → acc
 | --- | --- | --- | --- | --- | --- |
 | POST | `/api/users/register` | Público | Registra un usuario | 201 | 400, 500 |
 | POST | `/api/users/login` | Público | Devuelve un JWT | 200 | 400, 401, 500 |
-| GET | `/api/tasks` | Con token | Lista las tareas del usuario | 200 | 401, 500 |
+| GET | `/api/tasks` | Con token | Lista las tareas del usuario | 200 | 400, 401, 500 |
 | GET | `/api/tasks/:id` | Con token | Devuelve una tarea | 200 | 400, 401, 404, 500 |
 | POST | `/api/tasks` | Con token | Crea una tarea | 201 | 400, 401, 500 |
 | PUT | `/api/tasks/:id` | Con token | Modifica una tarea | 200 | 400, 401, 404, 500 |
@@ -113,7 +113,7 @@ Cada capa solo conoce a la siguiente: rutas → controlador → servicio → acc
 
 Filtros de `GET /api/tasks`: `?priority=alta` y `?completed=false`.
 
-Esta tabla muestra el resultado final, con los extras. Por ahora, `POST`, `PUT` y `DELETE` piden token, y los `GET` son públicos hasta sumar la relación entre modelos. `DELETE` acepta cualquier usuario autenticado hasta sumar los roles.
+Un admin puede eliminar la tarea de cualquier usuario, pero para listar, ver y modificar tiene las mismas reglas que los demás: solo accede a las suyas. El rol viaja en el token, así que un usuario recién ascendido tiene que volver a hacer login.
 
 ## Validaciones de negocio
 

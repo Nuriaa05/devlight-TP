@@ -1,17 +1,20 @@
 import { AppError } from '../../utils/AppError';
 import { TASK_PRIORITIES, TaskPriority } from './task.model';
 import * as taskRepository from './task.repository';
-import { TaskData } from './task.repository';
+import { TaskData, TaskFilters } from './task.repository';
 
 const OBJECT_ID_FORMAT = /^[a-f\d]{24}$/i;
 const DATE_FORMAT = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}:\d{2}(\.\d{1,3})?Z)?$/;
 const TASK_NOT_FOUND = 'Tarea no encontrada';
+const INVALID_PRIORITY = `La prioridad debe ser ${TASK_PRIORITIES.join(', ')}`;
 
 const assertValidId = (id: string): void => {
   if (!OBJECT_ID_FORMAT.test(id)) {
     throw new AppError(400, 'El id de la tarea no tiene un formato válido');
   }
 };
+
+const toDay = (date: Date): string => date.toISOString().slice(0, 10);
 
 const parseDueDate = (value: unknown): Date => {
   const date = typeof value === 'string' && DATE_FORMAT.test(value) ? new Date(value) : null;
@@ -24,8 +27,6 @@ const parseDueDate = (value: unknown): Date => {
   return date;
 };
 
-const toDay = (date: Date): string => date.toISOString().slice(0, 10);
-
 // Compara días y no horas, para que una tarea pueda vencer hoy.
 const assertNotPast = (dueDate: Date): void => {
   const today = new Date().toLocaleDateString('en-CA');
@@ -35,6 +36,7 @@ const assertNotPast = (dueDate: Date): void => {
   }
 };
 
+// Solo lee los campos de la tarea: el dueño sale siempre del token, nunca del cuerpo.
 const parseTaskData = (body: unknown): TaskData => {
   if (typeof body !== 'object' || body === null || Array.isArray(body)) {
     throw new AppError(400, 'El cuerpo de la petición debe ser un objeto JSON');
@@ -52,7 +54,7 @@ const parseTaskData = (body: unknown): TaskData => {
 
   if (priority !== undefined) {
     if (!TASK_PRIORITIES.includes(priority as TaskPriority)) {
-      throw new AppError(400, `La prioridad debe ser ${TASK_PRIORITIES.join(', ')}`);
+      throw new AppError(400, INVALID_PRIORITY);
     }
     data.priority = priority as TaskPriority;
   }
@@ -71,12 +73,35 @@ const parseTaskData = (body: unknown): TaskData => {
   return data;
 };
 
-export const getAllTasks = () => taskRepository.findAllTasks();
+const parseFilters = (query: Record<string, unknown>): TaskFilters => {
+  const { priority, completed } = query;
+  const filters: TaskFilters = {};
 
-export const getTaskById = async (id: string) => {
+  if (priority !== undefined) {
+    if (!TASK_PRIORITIES.includes(priority as TaskPriority)) {
+      throw new AppError(400, INVALID_PRIORITY);
+    }
+    filters.priority = priority as TaskPriority;
+  }
+
+  if (completed !== undefined) {
+    if (completed !== 'true' && completed !== 'false') {
+      throw new AppError(400, 'El filtro completed debe ser true o false');
+    }
+    filters.completed = completed === 'true';
+  }
+
+  return filters;
+};
+
+export const getUserTasks = (userId: string, query: Record<string, unknown>) =>
+  taskRepository.findUserTasks(userId, parseFilters(query));
+
+// Una tarea ajena responde 404, para no revelar que existe.
+export const getUserTaskById = async (id: string, userId: string) => {
   assertValidId(id);
 
-  const task = await taskRepository.findTaskById(id);
+  const task = await taskRepository.findUserTaskById(id, userId);
   if (!task) {
     throw new AppError(404, TASK_NOT_FOUND);
   }
@@ -84,7 +109,7 @@ export const getTaskById = async (id: string) => {
   return task;
 };
 
-export const createTask = async (body: unknown) => {
+export const createTask = async (body: unknown, userId: string) => {
   const data = parseTaskData(body);
 
   if (!data.title) {
@@ -95,10 +120,10 @@ export const createTask = async (body: unknown) => {
   }
   assertNotPast(data.dueDate);
 
-  return taskRepository.createTask(data);
+  return taskRepository.createTask(data, userId);
 };
 
-export const updateTask = async (id: string, body: unknown) => {
+export const updateUserTask = async (id: string, body: unknown, userId: string) => {
   assertValidId(id);
 
   const data = parseTaskData(body);
@@ -106,14 +131,14 @@ export const updateTask = async (id: string, body: unknown) => {
     throw new AppError(400, 'No se envió ningún campo para modificar');
   }
 
-  const task = await getTaskById(id);
+  const task = await getUserTaskById(id, userId);
 
   // Una tarea ya vencida se puede seguir editando mientras no se cambie su fecha.
   if (data.dueDate && data.dueDate.getTime() !== task.dueDate.getTime()) {
     assertNotPast(data.dueDate);
   }
 
-  const updatedTask = await taskRepository.updateTask(id, data);
+  const updatedTask = await taskRepository.updateUserTask(id, userId, data);
   if (!updatedTask) {
     throw new AppError(404, TASK_NOT_FOUND);
   }
@@ -121,6 +146,7 @@ export const updateTask = async (id: string, body: unknown) => {
   return updatedTask;
 };
 
+// Solo llega un admin, que puede eliminar la tarea de cualquier usuario.
 export const deleteTask = async (id: string) => {
   assertValidId(id);
 
