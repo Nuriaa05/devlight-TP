@@ -36,9 +36,10 @@ Las fechas de abajo son **estimadas**, porque las exactas las informa el docente
 
 ### Semana 2: autenticación, extras y entrega
 
-- [ ] **Lun 9:** aplicar la devolución del punto de control y escribir el modelo `User`.
-- [ ] **Mar 10:** implementar registro con Bcrypt y login con JWT.
-- [ ] **Mié 11:** escribir el middleware de JWT y proteger las rutas.
+- [ ] **Lun 9:** aplicar la devolución del punto de control.
+- [x] **Lun 9:** escribir el modelo `User`.
+- [x] **Mar 10:** implementar registro con Bcrypt y login con JWT.
+- [x] **Mié 11:** escribir el middleware de JWT y proteger las rutas.
 - [ ] **Jue 12:** sumar los extras: relación entre modelos, filtros, roles y logging.
 - [ ] **Vie 13:** revisar validaciones y códigos de estado endpoint por endpoint.
 - [ ] **Sáb 14:** completar y exportar la colección de Thunder Client, y escribir el README.
@@ -62,7 +63,8 @@ src/
 │       ├── user.repository.ts
 │       └── user.model.ts
 ├── config/
-│   └── database.ts              # Conexión a MongoDB
+│   ├── database.ts              # Conexión a MongoDB
+│   └── jwt.ts                   # Lee y valida la configuración de JWT
 ├── middlewares/
 │   ├── auth.middleware.ts       # Verifica el JWT
 │   ├── admin.middleware.ts      # Extra: roles
@@ -111,7 +113,7 @@ Cada capa solo conoce a la siguiente: rutas → controlador → servicio → acc
 
 Filtros de `GET /api/tasks`: `?priority=alta` y `?completed=false`.
 
-Durante la semana 1 estas rutas funcionan sin token. El punto de control se evalúa así.
+Esta tabla muestra el resultado final, con los extras. Por ahora, `POST`, `PUT` y `DELETE` piden token, y los `GET` son públicos hasta sumar la relación entre modelos. `DELETE` acepta cualquier usuario autenticado hasta sumar los roles.
 
 ## Validaciones de negocio
 
@@ -126,6 +128,9 @@ Otras reglas de la API:
 - La fecha límite se envía como `AAAA-MM-DD`. Una tarea puede vencer el mismo día en que se crea.
 - `PUT` modifica solo los campos enviados y necesita al menos uno.
 - Una tarea vencida se puede seguir editando mientras no se cambie su fecha.
+- La contraseña debe tener al menos 8 caracteres y no superar los 72 bytes, el límite de Bcrypt.
+- El email no distingue mayúsculas de minúsculas.
+- `JWT_EXPIRES_IN` usa un formato como `30m`, `1h` o `7d`. Si está vacía, el token dura 1 hora.
 
 ## Códigos de estado
 

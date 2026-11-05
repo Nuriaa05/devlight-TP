@@ -1,5 +1,6 @@
 import express from 'express';
 import taskRoutes from './components/tasks/task.routes';
+import userRoutes from './components/users/user.routes';
 import { errorHandler, notFoundHandler } from './middlewares/error.middleware';
 
 const app = express();
@@ -11,6 +12,7 @@ app.get('/api/health', (_req, res) => {
 });
 
 app.use('/api/tasks', taskRoutes);
+app.use('/api/users', userRoutes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
