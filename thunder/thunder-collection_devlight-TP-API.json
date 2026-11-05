@@ -1,0 +1,1042 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "devlight-TP - API",
+    "collectionId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+    "dateExported": "2026-11-05T01:35:19.691Z",
+    "version": "1.4",
+    "folders": [
+        {
+            "_id": "29a96c93-3329-406c-91ac-5da4f7d311b0",
+            "name": "1. Usuarios",
+            "containerId": "",
+            "created": "2026-11-05T01:25:47.227Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "bfe83810-a3fb-4e52-b695-a5c5e8be776a",
+            "name": "2. Errores de usuarios",
+            "containerId": "",
+            "created": "2026-11-05T01:25:47.229Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "caaa19c6-37f3-491a-9e2b-5ee58dadaefd",
+            "name": "3. Tareas",
+            "containerId": "",
+            "created": "2026-11-05T01:25:47.230Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "feefc553-72ab-48c5-93a4-6d28ccfa1ede",
+            "name": "4. Errores 400 de tareas",
+            "containerId": "",
+            "created": "2026-11-05T01:25:47.231Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "4bdf1feb-bd42-4986-9484-b5fbfe3f095a",
+            "name": "5. Errores 401",
+            "containerId": "",
+            "created": "2026-11-05T01:25:47.232Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "793aec3f-ac96-4a80-b91f-e1cacfc1471e",
+            "name": "6. Errores 403 y 404",
+            "containerId": "",
+            "created": "2026-11-05T01:25:47.233Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "e90609d6-3bcb-4437-8e22-f0ee5435079a",
+            "name": "7. Eliminar (al final)",
+            "containerId": "",
+            "created": "2026-11-05T01:25:47.234Z",
+            "sortNum": 70000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "516f9a52-6639-4e00-b2d0-0ef4eba20c24",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "29a96c93-3329-406c-91ac-5da4f7d311b0",
+            "name": "201 - Registrar usuario",
+            "url": "http://localhost:3000/api/users/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2026-11-05T01:25:47.228Z",
+            "modified": "2026-11-05T01:25:47.228Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Ana\",",
+                    "  \"email\": \"ana@example.com\",",
+                    "  \"password\": \"una-clave-de-prueba\"",
+                    "}"
+                ],
+                "form": []
+            }
+        },
+        {
+            "_id": "073bf353-ef7c-4bcb-b954-de7a88265c09",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "29a96c93-3329-406c-91ac-5da4f7d311b0",
+            "name": "200 - Login de usuario",
+            "url": "http://localhost:3000/api/users/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2026-11-05T01:25:47.229Z",
+            "modified": "2026-11-05T01:25:47.229Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"email\": \"ana@example.com\",",
+                    "  \"password\": \"una-clave-de-prueba\"",
+                    "}"
+                ],
+                "form": []
+            }
+        },
+        {
+            "_id": "bd71371e-4445-48b5-866c-5dd3943be20a",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "29a96c93-3329-406c-91ac-5da4f7d311b0",
+            "name": "200 - Login de admin",
+            "url": "http://localhost:3000/api/users/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2026-11-05T01:25:47.230Z",
+            "modified": "2026-11-05T01:25:47.230Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"email\": \"nuria@example.com\",",
+                    "  \"password\": \"una-clave-de-prueba\"",
+                    "}"
+                ],
+                "form": []
+            }
+        },
+        {
+            "_id": "e3f7dd86-4b4e-40af-8a50-5e9def84a6d1",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "bfe83810-a3fb-4e52-b695-a5c5e8be776a",
+            "name": "400 - Registrar con email repetido",
+            "url": "http://localhost:3000/api/users/register",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2026-11-05T01:25:47.231Z",
+            "modified": "2026-11-05T01:25:47.231Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Ana\",",
+                    "  \"email\": \"ana@example.com\",",
+                    "  \"password\": \"una-clave-de-prueba\"",
+                    "}"
+                ]
+            }
+        },
+        {
+            "_id": "da1e3ec4-9866-4fb1-bee5-83b5e8f5a968",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "bfe83810-a3fb-4e52-b695-a5c5e8be776a",
+            "name": "400 - Registrar sin nombre",
+            "url": "http://localhost:3000/api/users/register",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2026-11-05T01:25:47.232Z",
+            "modified": "2026-11-05T01:25:47.232Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"email\": \"nuevo@example.com\",",
+                    "  \"password\": \"una-clave-de-prueba\"",
+                    "}"
+                ]
+            }
+        },
+        {
+            "_id": "4fd992e8-da6e-4066-b10a-bec0526a5623",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "bfe83810-a3fb-4e52-b695-a5c5e8be776a",
+            "name": "400 - Registrar con email inválido",
+            "url": "http://localhost:3000/api/users/register",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2026-11-05T01:25:47.233Z",
+            "modified": "2026-11-05T01:25:47.233Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Nuevo\",",
+                    "  \"email\": \"no-es-un-email\",",
+                    "  \"password\": \"una-clave-de-prueba\"",
+                    "}"
+                ]
+            }
+        },
+        {
+            "_id": "7a6e95ec-5880-43c6-b4f9-3be2c9377649",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "bfe83810-a3fb-4e52-b695-a5c5e8be776a",
+            "name": "400 - Registrar con contraseña corta",
+            "url": "http://localhost:3000/api/users/register",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2026-11-05T01:25:47.234Z",
+            "modified": "2026-11-05T01:25:47.234Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"name\": \"Nuevo\",",
+                    "  \"email\": \"nuevo@example.com\",",
+                    "  \"password\": \"1234\"",
+                    "}"
+                ]
+            }
+        },
+        {
+            "_id": "96f849c2-5174-45b3-9d32-b707bf7e35a9",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "bfe83810-a3fb-4e52-b695-a5c5e8be776a",
+            "name": "400 - Login sin contraseña",
+            "url": "http://localhost:3000/api/users/login",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2026-11-05T01:25:47.235Z",
+            "modified": "2026-11-05T01:25:47.235Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"email\": \"ana@example.com\"",
+                    "}"
+                ]
+            }
+        },
+        {
+            "_id": "177121b2-4d52-48bf-8f28-99c5decfa9c1",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "bfe83810-a3fb-4e52-b695-a5c5e8be776a",
+            "name": "401 - Login con contraseña incorrecta",
+            "url": "http://localhost:3000/api/users/login",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2026-11-05T01:25:47.236Z",
+            "modified": "2026-11-05T01:25:47.236Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"email\": \"ana@example.com\",",
+                    "  \"password\": \"otra-clave-incorrecta\"",
+                    "}"
+                ]
+            }
+        },
+        {
+            "_id": "672638bd-dd95-4954-910e-a17978e3712e",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "bfe83810-a3fb-4e52-b695-a5c5e8be776a",
+            "name": "401 - Login con email inexistente",
+            "url": "http://localhost:3000/api/users/login",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2026-11-05T01:25:47.237Z",
+            "modified": "2026-11-05T01:25:47.237Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"email\": \"nadie@example.com\",",
+                    "  \"password\": \"una-clave-de-prueba\"",
+                    "}"
+                ]
+            }
+        },
+        {
+            "_id": "04bc270d-cd9b-4a61-a49c-92d7a3036eb5",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "caaa19c6-37f3-491a-9e2b-5ee58dadaefd",
+            "name": "201 - Crear tarea",
+            "url": "http://localhost:3000/api/tasks",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2026-11-05T01:25:47.238Z",
+            "modified": "2026-11-05T01:25:47.238Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"title\": \"Estudiar Node\",",
+                    "  \"priority\": \"alta\",",
+                    "  \"dueDate\": \"2030-12-01\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "ce5e040b-9932-4242-85b0-d9935c87651b",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "caaa19c6-37f3-491a-9e2b-5ee58dadaefd",
+            "name": "200 - Listar mis tareas",
+            "url": "http://localhost:3000/api/tasks",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2026-11-05T01:25:47.239Z",
+            "modified": "2026-11-05T01:25:47.239Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "526975e8-34fc-4295-bcc5-40f0e0cc11a5",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "caaa19c6-37f3-491a-9e2b-5ee58dadaefd",
+            "name": "200 - Filtrar por prioridad",
+            "url": "http://localhost:3000/api/tasks?priority=alta",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2026-11-05T01:25:47.240Z",
+            "modified": "2026-11-05T01:25:47.240Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "priority",
+                    "value": "alta",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "6407091c-0d2f-4a3d-9b2c-10e7d14867e9",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "caaa19c6-37f3-491a-9e2b-5ee58dadaefd",
+            "name": "200 - Filtrar por estado",
+            "url": "http://localhost:3000/api/tasks?completed=false",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2026-11-05T01:25:47.241Z",
+            "modified": "2026-11-05T01:25:47.241Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "completed",
+                    "value": "false",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "5b131da8-3768-4af3-8ead-3656eac6e50a",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "caaa19c6-37f3-491a-9e2b-5ee58dadaefd",
+            "name": "200 - Obtener tarea",
+            "url": "http://localhost:3000/api/tasks/{{tareaId}}",
+            "method": "GET",
+            "sortNum": 150000,
+            "created": "2026-11-05T01:25:47.242Z",
+            "modified": "2026-11-05T01:25:47.242Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "22ffb224-4411-407f-9b40-7649a7f7681c",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "caaa19c6-37f3-491a-9e2b-5ee58dadaefd",
+            "name": "200 - Modificar tarea",
+            "url": "http://localhost:3000/api/tasks/{{tareaId}}",
+            "method": "PUT",
+            "sortNum": 160000,
+            "created": "2026-11-05T01:25:47.243Z",
+            "modified": "2026-11-05T01:25:47.243Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"completed\": true",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "6f03e592-4fa8-4db3-9e5f-ba9f8d93a44f",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "feefc553-72ab-48c5-93a4-6d28ccfa1ede",
+            "name": "400 - Crear sin título",
+            "url": "http://localhost:3000/api/tasks",
+            "method": "POST",
+            "sortNum": 170000,
+            "created": "2026-11-05T01:25:47.244Z",
+            "modified": "2026-11-05T01:25:47.244Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"dueDate\": \"2030-12-01\"",
+                    "}"
+                ],
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "d9a8c692-8ad3-4eab-a5f8-742fb47f3d50",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "feefc553-72ab-48c5-93a4-6d28ccfa1ede",
+            "name": "400 - Crear con título vacío",
+            "url": "http://localhost:3000/api/tasks",
+            "method": "POST",
+            "sortNum": 180000,
+            "created": "2026-11-05T01:25:47.245Z",
+            "modified": "2026-11-05T01:25:47.245Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"title\": \"   \",",
+                    "  \"dueDate\": \"2030-12-01\"",
+                    "}"
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "529bd8e6-fa52-44fd-99d2-7e6934204773",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "feefc553-72ab-48c5-93a4-6d28ccfa1ede",
+            "name": "400 - Crear sin fecha",
+            "url": "http://localhost:3000/api/tasks",
+            "method": "POST",
+            "sortNum": 190000,
+            "created": "2026-11-05T01:25:47.246Z",
+            "modified": "2026-11-05T01:25:47.246Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"title\": \"Sin fecha\"",
+                    "}"
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "a260668f-53b8-42b5-9607-79f30a372e45",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "feefc553-72ab-48c5-93a4-6d28ccfa1ede",
+            "name": "400 - Crear con fecha pasada",
+            "url": "http://localhost:3000/api/tasks",
+            "method": "POST",
+            "sortNum": 200000,
+            "created": "2026-11-05T01:25:47.247Z",
+            "modified": "2026-11-05T01:25:47.247Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"title\": \"Vieja\",",
+                    "  \"dueDate\": \"2020-01-01\"",
+                    "}"
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "a28e822b-a361-4b7c-86b8-3fb69a5ae0bb",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "feefc553-72ab-48c5-93a4-6d28ccfa1ede",
+            "name": "400 - Crear con fecha inexistente",
+            "url": "http://localhost:3000/api/tasks",
+            "method": "POST",
+            "sortNum": 210000,
+            "created": "2026-11-05T01:25:47.248Z",
+            "modified": "2026-11-05T01:25:47.248Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"title\": \"Mala\",",
+                    "  \"dueDate\": \"2030-02-31\"",
+                    "}"
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "dde3656d-a4c0-438f-aaab-958ef10dc8f4",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "feefc553-72ab-48c5-93a4-6d28ccfa1ede",
+            "name": "400 - Crear con prioridad inválida",
+            "url": "http://localhost:3000/api/tasks",
+            "method": "POST",
+            "sortNum": 220000,
+            "created": "2026-11-05T01:25:47.249Z",
+            "modified": "2026-11-05T01:25:47.249Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"title\": \"Mala\",",
+                    "  \"dueDate\": \"2030-12-01\",",
+                    "  \"priority\": \"urgente\"",
+                    "}"
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "dd8afa46-d04f-4dd8-89ec-13efd6c93bfd",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "feefc553-72ab-48c5-93a4-6d28ccfa1ede",
+            "name": "400 - Filtrar con prioridad inválida",
+            "url": "http://localhost:3000/api/tasks?priority=urgente",
+            "method": "GET",
+            "sortNum": 230000,
+            "created": "2026-11-05T01:25:47.250Z",
+            "modified": "2026-11-05T01:25:47.250Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "priority",
+                    "value": "urgente"
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "6f3784c2-b069-4c41-8c8c-3ad27b347c7b",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "feefc553-72ab-48c5-93a4-6d28ccfa1ede",
+            "name": "400 - Filtrar con estado inválido",
+            "url": "http://localhost:3000/api/tasks?completed=quizas",
+            "method": "GET",
+            "sortNum": 240000,
+            "created": "2026-11-05T01:25:47.251Z",
+            "modified": "2026-11-05T01:25:47.251Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "completed",
+                    "value": "quizas"
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "0486e45e-8f0b-466c-9c66-6993d2ff12a8",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "feefc553-72ab-48c5-93a4-6d28ccfa1ede",
+            "name": "400 - Obtener con id inválido",
+            "url": "http://localhost:3000/api/tasks/123",
+            "method": "GET",
+            "sortNum": 250000,
+            "created": "2026-11-05T01:25:47.252Z",
+            "modified": "2026-11-05T01:25:47.252Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "a5712eaa-20c5-4a53-957e-9fe857b74922",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "feefc553-72ab-48c5-93a4-6d28ccfa1ede",
+            "name": "400 - Modificar sin campos",
+            "url": "http://localhost:3000/api/tasks/{{tareaId}}",
+            "method": "PUT",
+            "sortNum": 260000,
+            "created": "2026-11-05T01:25:47.253Z",
+            "modified": "2026-11-05T01:25:47.253Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{}"
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "a0d4fd3f-b23f-4b0c-9711-40f21b4953e6",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "feefc553-72ab-48c5-93a4-6d28ccfa1ede",
+            "name": "400 - Modificar con id inválido",
+            "url": "http://localhost:3000/api/tasks/123",
+            "method": "PUT",
+            "sortNum": 270000,
+            "created": "2026-11-05T01:25:47.254Z",
+            "modified": "2026-11-05T01:25:47.254Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"completed\": true",
+                    "}"
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "2fd00cd3-82fc-4f44-8a1d-f26b8764429c",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "feefc553-72ab-48c5-93a4-6d28ccfa1ede",
+            "name": "400 - Eliminar con id inválido",
+            "url": "http://localhost:3000/api/tasks/123",
+            "method": "DELETE",
+            "sortNum": 280000,
+            "created": "2026-11-05T01:25:47.255Z",
+            "modified": "2026-11-05T01:25:47.255Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenAdmin}}"
+            }
+        },
+        {
+            "_id": "4a7f041b-4b70-46d5-bcc2-fc92fe6f662a",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "4bdf1feb-bd42-4986-9484-b5fbfe3f095a",
+            "name": "401 - Listar sin token",
+            "url": "http://localhost:3000/api/tasks",
+            "method": "GET",
+            "sortNum": 290000,
+            "created": "2026-11-05T01:25:47.256Z",
+            "modified": "2026-11-05T01:25:47.256Z",
+            "headers": []
+        },
+        {
+            "_id": "b7e99122-5f9b-4084-a13b-2b914242691c",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "4bdf1feb-bd42-4986-9484-b5fbfe3f095a",
+            "name": "401 - Obtener sin token",
+            "url": "http://localhost:3000/api/tasks/{{tareaId}}",
+            "method": "GET",
+            "sortNum": 300000,
+            "created": "2026-11-05T01:25:47.257Z",
+            "modified": "2026-11-05T01:25:47.257Z",
+            "headers": []
+        },
+        {
+            "_id": "75f0ca45-8b69-4d37-8264-61aa0a08484d",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "4bdf1feb-bd42-4986-9484-b5fbfe3f095a",
+            "name": "401 - Crear sin token",
+            "url": "http://localhost:3000/api/tasks",
+            "method": "POST",
+            "sortNum": 310000,
+            "created": "2026-11-05T01:25:47.258Z",
+            "modified": "2026-11-05T01:25:47.258Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"title\": \"Sin token\",",
+                    "  \"dueDate\": \"2030-12-01\"",
+                    "}"
+                ]
+            }
+        },
+        {
+            "_id": "2cde64c2-714b-49aa-a104-2af9e36a6ff7",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "4bdf1feb-bd42-4986-9484-b5fbfe3f095a",
+            "name": "401 - Modificar sin token",
+            "url": "http://localhost:3000/api/tasks/{{tareaId}}",
+            "method": "PUT",
+            "sortNum": 320000,
+            "created": "2026-11-05T01:25:47.259Z",
+            "modified": "2026-11-05T01:25:47.259Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"completed\": true",
+                    "}"
+                ]
+            }
+        },
+        {
+            "_id": "2635d806-6628-425b-ad78-5f9fc1e61d04",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "4bdf1feb-bd42-4986-9484-b5fbfe3f095a",
+            "name": "401 - Eliminar sin token",
+            "url": "http://localhost:3000/api/tasks/{{tareaId}}",
+            "method": "DELETE",
+            "sortNum": 330000,
+            "created": "2026-11-05T01:25:47.260Z",
+            "modified": "2026-11-05T01:25:47.260Z",
+            "headers": []
+        },
+        {
+            "_id": "28a4579f-f3ab-4791-bf9f-1425b8c51390",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "4bdf1feb-bd42-4986-9484-b5fbfe3f095a",
+            "name": "401 - Listar con token inválido",
+            "url": "http://localhost:3000/api/tasks",
+            "method": "GET",
+            "sortNum": 340000,
+            "created": "2026-11-05T01:25:47.261Z",
+            "modified": "2026-11-05T01:25:47.261Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "token-invalido"
+            }
+        },
+        {
+            "_id": "9084fa1c-1a17-429a-b9d9-e35398682d9d",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "793aec3f-ac96-4a80-b91f-e1cacfc1471e",
+            "name": "403 - Eliminar sin ser admin",
+            "url": "http://localhost:3000/api/tasks/{{tareaId}}",
+            "method": "DELETE",
+            "sortNum": 350000,
+            "created": "2026-11-05T01:25:47.262Z",
+            "modified": "2026-11-05T01:25:47.262Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "3764a367-87ac-4d9b-a5e8-ce4fc2bd3170",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "793aec3f-ac96-4a80-b91f-e1cacfc1471e",
+            "name": "404 - Obtener tarea de otro usuario",
+            "url": "http://localhost:3000/api/tasks/{{tareaId}}",
+            "method": "GET",
+            "sortNum": 360000,
+            "created": "2026-11-05T01:25:47.263Z",
+            "modified": "2026-11-05T01:25:47.263Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenAdmin}}"
+            }
+        },
+        {
+            "_id": "03b2e70c-5978-489f-abd0-c4f1e7f84450",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "793aec3f-ac96-4a80-b91f-e1cacfc1471e",
+            "name": "404 - Modificar tarea de otro usuario",
+            "url": "http://localhost:3000/api/tasks/{{tareaId}}",
+            "method": "PUT",
+            "sortNum": 370000,
+            "created": "2026-11-05T01:25:47.264Z",
+            "modified": "2026-11-05T01:25:47.264Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"completed\": false",
+                    "}"
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenAdmin}}"
+            }
+        },
+        {
+            "_id": "e0e42b83-45dd-4c8f-bc85-aa7d2cd9a8c7",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "793aec3f-ac96-4a80-b91f-e1cacfc1471e",
+            "name": "404 - Obtener tarea inexistente",
+            "url": "http://localhost:3000/api/tasks/aaaaaaaaaaaaaaaaaaaaaaaa",
+            "method": "GET",
+            "sortNum": 380000,
+            "created": "2026-11-05T01:25:47.265Z",
+            "modified": "2026-11-05T01:25:47.265Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "ea687446-8453-4f9a-bb26-3ffdd310a952",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "793aec3f-ac96-4a80-b91f-e1cacfc1471e",
+            "name": "404 - Modificar tarea inexistente",
+            "url": "http://localhost:3000/api/tasks/aaaaaaaaaaaaaaaaaaaaaaaa",
+            "method": "PUT",
+            "sortNum": 390000,
+            "created": "2026-11-05T01:25:47.266Z",
+            "modified": "2026-11-05T01:25:47.266Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": [
+                    "{",
+                    "  \"completed\": true",
+                    "}"
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        },
+        {
+            "_id": "5d538ae6-6ba3-42e3-a243-af638484ba57",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "793aec3f-ac96-4a80-b91f-e1cacfc1471e",
+            "name": "404 - Eliminar tarea inexistente",
+            "url": "http://localhost:3000/api/tasks/aaaaaaaaaaaaaaaaaaaaaaaa",
+            "method": "DELETE",
+            "sortNum": 400000,
+            "created": "2026-11-05T01:25:47.267Z",
+            "modified": "2026-11-05T01:25:47.267Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenAdmin}}"
+            }
+        },
+        {
+            "_id": "5eaf6970-cf2b-4602-bcd0-fed5a6c9809e",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "e90609d6-3bcb-4437-8e22-f0ee5435079a",
+            "name": "200 - Eliminar tarea como admin",
+            "url": "http://localhost:3000/api/tasks/{{tareaId}}",
+            "method": "DELETE",
+            "sortNum": 410000,
+            "created": "2026-11-05T01:25:47.268Z",
+            "modified": "2026-11-05T01:25:47.268Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenAdmin}}"
+            }
+        },
+        {
+            "_id": "f48b7e36-d511-4175-a22b-6a36b944f528",
+            "colId": "2deb889a-8009-4f25-889b-a2333256e9a9",
+            "containerId": "e90609d6-3bcb-4437-8e22-f0ee5435079a",
+            "name": "404 - Obtener tarea eliminada",
+            "url": "http://localhost:3000/api/tasks/{{tareaId}}",
+            "method": "GET",
+            "sortNum": 420000,
+            "created": "2026-11-05T01:25:47.269Z",
+            "modified": "2026-11-05T01:25:47.269Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{tokenUsuario}}"
+            }
+        }
+    ],
+    "settings": {
+        "docs": [
+            "API de tareas. El nombre de cada petición empieza con el código esperado.",
+            "Antes de ejecutarla, crear un entorno activo con tokenUsuario, tokenAdmin y tareaId."
+        ]
+    },
+    "ref": "_fjwNeFG9RYs16ibbyizdfvdP8XxXx-RA-t-agblEgeTCGUFsvXE-sfn_j8FEQidmOQaaONxOt_YoDtGBS31sA"
+}
